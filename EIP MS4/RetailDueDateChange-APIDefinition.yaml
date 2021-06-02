@@ -1,0 +1,161 @@
+openapi: 3.0.0
+info:
+  title: 'Retail Due Date Change Service'
+  version: "1.0.0"
+  description: >-
+    Provides an on-demand service for Retail Due Date Change Transaction.
+servers:
+  - url: 'https://coreservicing.{espserver}:{port}/'
+    description: 'Retail Account Maintenance Service endpoint per deployment environment'
+    variables:
+      eipserver:
+        description: >- 
+          Assigned at deployment time per deployed environment.
+        default: 'espserver.tfs.com'
+      port:
+        description: >-
+          Assigned at deployment time per deployment environment.
+        default: '8080'
+paths:
+  '/retailAccount/scheduledPaymentDueDate':
+    put:
+      description: 'Enqueues Due Date Change Transaction Request after Structural Validation for Asynchronous Processing & Acknowledges Receipt of Request.'
+      operationId: 'retailDueDateChange'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetailDueDateRequest'
+        description: 'Due Date Change Request Context & Resource Attributes'      
+      responses:
+        '202':
+          description: 'Due Date Change Transaction Request Accepted & Enqueued for Asynchronous Processing'
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/RetailDueDateAcknowledgement'
+        '500':
+          description: 'Error Processing Due Date Change Transaction Request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetailDueDateAcknowledgement'          
+components:
+  schemas:           
+    RetailDueDateRequest:
+      type: object
+      required:
+        - apiRequestContext
+        - financialAccountNumber
+        - newScheduledPaymentDueDate
+        - customerServiceAgentID
+      properties:
+        apiRequestContext:
+          type: object
+          description: >-
+            Provides the detailed context for Retail Due Data API Request
+          properties:
+            interactionID:
+              type: string
+              description: >-
+                Globally Unique Identifier assigned by Client System representing the instance of an interaction with the Due Date Change Service.
+            apiRequestInitiatedOn:
+              type: string
+              format: date-time
+              example: 2017-07-21T17:32:28Z
+              description: >-
+                Date & Time at which API Request was Initiated by Client in ISO 8601 format.
+            apiInitiatingPartyID:
+              type: string
+              description: >-
+                Unique Identifier representing the Party/System Initiating the API.    
+            apiReactingPartyID:
+              type: string
+              description: >-
+                Unique Identifier representing the Party/System Reacting to the API.                            
+            callbackAPIEndpointURL:
+              type: string
+              description: >-
+                Fully Qualified Enpoint URL with Resource Path for Asynchronous Response Callback from Due Date Change Service   
+        financialAccountNumber:
+          type: string
+          description: >-
+            Unique Identifier for a Loan Account within Toyota Financial Services
+            Composite Key - [Bank][Branch][Loan Number][Schedule Number]
+                            [999][999][AAAAAAA][9999]
+        newScheduledPaymentDueDate:
+          type: string
+          format: date
+          example: 2017-07-21          
+          description: >-
+            New Due Date requested by Customer to make the contractually obligated scheduled payments for future billing cycle(s) in ISO 8601 format.
+        currentProductType:
+          type: string
+          enum: [R, B]
+          description: >-
+            Indicates the Product Type of the Retail Account. 
+            R - Retail Simple Interest Account
+            B - Retail Baloon Account         
+        contractualTermCount:
+          type: integer
+          description: >-
+            Total Number Of Whole Months (Payments) between the Contract Start Date and Contract Maturity Date for an Account.             
+        customerServiceAgentID:
+          type: string
+          description: >-
+            Customer Service Agent ID who initiated/approved due date change request for the customer account on the Client System
+    RetailDueDateAcknowledgement:
+      properties:            
+        apiAcknowledgementContext:
+          properties:
+            interactionID:
+              type: string
+              description: >-
+                Globally Unique Identifier assigned by Client System representing the instance of an interaction with the Due Date Change Service.
+            apiAcknowledgementInitiatedOn:
+              type: string
+              format: date-time
+              example: 2017-07-21T17:32:28Z              
+              description: >-
+                Date & Time at which API Acknowledgement was Initiated by Due Date Change Service in ISO 8601 format.      
+            apiAcknowledgementCode:
+              type: string
+              description: >-
+                Return code from the Due Date Change Service indicating that the Due Date Change transaction was enqueued successfully for asynchronous processing.
+            apiAcknowledgementDescription:
+              type: string
+              description: >-
+                Provides the description for Return Code from the Due Date Change Service indicating that the Due Date Change transaction was enqueued successfully for future processing.
+        apiExceptionContext:
+          properties:
+            apiExceptionCode:
+              type: string
+              description: >-
+                Exception code from the Due Date Change Service indicating that the Due Date Change transaction was not processed successfully.
+            apiExceptionDescription:
+              type: string
+              description: >-
+                Provides the description for Exception Code from the Due Date Change Service indicating that the Due Date Change transaction was not processed successfully
+            apiResourceExceptionDetail:
+              type: array
+              items:
+                type: object
+                description: >-
+                  Provides the reference to the Resource Attributes that caused the Exception
+                properties:
+                  resourceAttributeName:
+                    type: string
+                    description: >-
+                      Name of the Resource Attribute that cased the Exception.                    
+                  resourceAttributeValue:
+                    type: string  
+                    description: >-
+                      Value of the Resource Attribute that cased the Exception.                      
+                  resourceAttributeExceptionCode:
+                    type: string            
+                    description: >-
+                      Exception Code representing the type of error caused by the given Resource Attribute.                    
+                  resourceAttributeExceptionDescription:
+                    type: string  
+                    description: >-
+                      Description of the Exception Code representing the type of error caused by the given Resource Attribute.

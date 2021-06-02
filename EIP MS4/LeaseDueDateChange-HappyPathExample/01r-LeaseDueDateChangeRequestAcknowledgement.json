@@ -1,0 +1,10 @@
+{
+  "LeaseDueDateAcknowledgement": {
+    "apiAcknowledgementContext": {
+      "interactionID": "5000n000005PuMiAAK",
+      "apiAcknowledgementInitiatedOn": "2018-12-13T15:21:06.996Z",
+      "apiAcknowledgementDescription": "Due Date Change Transaction Request Accepted & Enqueued for Asynchronous Processing",
+      "apiAcknowledgementCode": "202"
+    }
+  }
+}

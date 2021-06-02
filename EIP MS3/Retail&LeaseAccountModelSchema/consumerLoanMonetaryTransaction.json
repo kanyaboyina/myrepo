@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "consumerLoanMonetaryTransaction",
+    "additionalProperties": false,
+    "properties": {
+        "_id": {
+            "type": "string"
+        },
+        "documentContext": {
+            "type": "object",
+            "properties": {
+                "documentSchemaID": {
+                    "type": "string"
+                },
+                "documentInstanceID": {
+                    "type": "string"
+                },
+                "documentCreationTime": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        },
+        "financialAccountNumber": {
+            "type": "string",
+            "primaryKey": true
+        },
+        "consumerLoanMonetaryTransactionCode": {
+            "type": "string"
+        },
+        "consumerLoanMonetaryTransactionDate": {
+            "type": "string",
+            "format": "date"
+        },
+        "consumerLoanMonetaryTransactionTotalAmount": {
+            "type": "number"
+        },
+        "consumerLoanMonetaryTransactionComponent": {
+            "type": "array",
+            "additionalItems": true,
+            "uniqueItems": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "arrayItem": true,
+                "properties": {
+                    "consumerLoanMonetaryTransactionComponentCode": {
+                        "type": "string"
+                    },
+                    "consumerLoanMonetaryTransactionComponentAmount": {
+                        "type": "number"
+                    }
+                }
+            }
+        }
+    },
+    "isRestfulApi": false
+}

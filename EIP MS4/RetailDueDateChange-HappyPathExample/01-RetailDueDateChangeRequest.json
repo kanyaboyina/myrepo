@@ -1,0 +1,16 @@
+{
+    "RetailDueDateRequest": {
+      "apiRequestContext": {
+        "interactionID": "5000n000005PuMiAAK",
+        "apiRequestInitiatedOn": "2018-12-13T15:21:06.090Z",
+        "apiInitiatingPartyID": "CEP",
+        "apiReactingPartyID": "ESP",
+        "callbackAPIEndpointURL": "https://tfs--cepjanrel4.cs67.my.salesforce.com/services/data/v43.0/composite/sobjects"
+      },
+      "financialAccountNumber": "0017000123",
+      "newScheduledPaymentDueDate": "2019-01-13",
+      "currentProductType": "R",
+      "contractualTermCount": 5,
+      "customerServiceAgentID": "shankar1"
+    }
+  }

@@ -1,0 +1,29 @@
+{
+   "ILOM26AI": {
+     "FLD1I": "008",
+     "FLD5I": "038",
+     "FLD3I": "026",
+     "DAT2I": "13022090516200000053701",
+     "FLD7I": "063",
+     "LOANI": "0001",
+     "DAT6I": "0805222",
+     "DAT4I": "072",
+     "DAT8I": "1",
+     "INDATBI": "ILMX 704;001;401",
+     "EMSGI": "573 WARNING - FURTHER MAINT MAY BE REQUIRED - PRESS ENTER TO CONTINUE",
+     "FLD4I": "054",
+     "LOAN2I": "0001",
+     "FLD2I": "026",
+     "DAT1I": "0805222",
+     "FLD8I": "106",
+     "FLD6I": "030",
+     "CUNOI": "7000123",
+     "DAT5I": "0000000071318200000058701",
+     "DAT3I": "23050071318200000053701",
+     "PART2I": "_______",
+     "DAT7I": "13",
+     "CUNO2I": "7000123",
+     "PARTI": "_______",
+     "INDATAI": "¹ILMX 704;001;401"
+   }
+ }

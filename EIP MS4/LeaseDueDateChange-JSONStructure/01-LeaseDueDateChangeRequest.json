@@ -1,0 +1,15 @@
+{
+    "LeaseDueDateRequest": {
+      "apiRequestContext": {
+        "interactionID": "",
+        "apiRequestInitiatedOn": "",
+        "apiInitiatingPartyID": "",
+        "apiReactingPartyID": "",
+        "callbackAPIEndpointURL": ""
+      },
+      "financialAccountNumber": "",
+      "newScheduledPaymentDueDate": "",
+	  "branchState": "",
+      "customerServiceAgentID": ""
+    }
+}

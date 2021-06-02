@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "consumerLeaseCrossReferenceDocument",
+    "additionalProperties": false,
+    "properties": {
+        "_id": {
+            "type": "string"
+        },
+        "documentContext": {
+            "type": "object",
+            "properties": {
+                "documentSchemaID": {
+                    "type": "string"
+                },
+                "documentInstanceID": {
+                    "type": "string"
+                },
+                "documentCreationTime": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        },
+        "consumerLeaseCrossReferenceType": {
+            "type": "string",
+            "primaryKey": true
+        },
+        "consumerLeaseCrossReference": {
+            "type": "array",
+            "additionalItems": true,
+            "uniqueItems": false,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "arrayItem": true,
+                "properties": {
+                    "consumerLeaseCrossReferenceMap": {
+                        "type": "array",
+                        "additionalItems": true,
+                        "uniqueItems": false,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "consumerLeaseCrossReferenceSystemName": {
+                                    "type": "string"
+                                },
+                                "consumerLeaseCrossReferenceCode": {
+                                    "type": "string"
+                                },
+                                "consumerLeaseCrossReferenceName": {
+                                    "type": "string"
+                                },
+                                "consumerLeaseCrossReferenceDescription": {
+                                    "type": "string"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "arrayItem": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "isRestfulApi": false
+}

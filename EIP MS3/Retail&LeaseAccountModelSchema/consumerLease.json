@@ -1,0 +1,340 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "consumerLease",
+    "additionalProperties": false,
+    "properties": {
+        "_id": {
+            "type": "string",
+            "comments": "Application Generated MongoDB ID\n"
+        },
+        "documentContext": {
+            "type": "object",
+            "properties": {
+                "documentSchemaID": {
+                    "type": "string"
+                },
+                "documentInstanceID": {
+                    "type": "string"
+                },
+                "documentCreationTime": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        },
+        "financialAccountNumber": {
+            "type": "string",
+            "primaryKey": true
+        },
+        "currentDealerSalesAndServiceOfficeLeaseRegionCode": {
+            "type": "string"
+        },
+        "currentDealerSalesAndServiceOfficeLeaseCode": {
+            "type": "string"
+        },
+        "leaseNumber": {
+            "type": "string"
+        },
+        "contract": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "leaseProductTypeCode": {
+                    "type": "string"
+                },
+                "leaseProductTypeCodeDescription": {
+                    "type": "string"
+                },
+                "agreementSignedDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "encoreEligibilityIndicator": {
+                    "type": "string"
+                },
+                "numberOfApprovedScheduledPaymentExtensions": {
+                    "type": "integer"
+                },
+                "originalMaturityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "currentMaturityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "firstPaymentDueDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "lastPaymentExtensionDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "vehicleAnnualMileageAllowance": {
+                    "type": "integer"
+                },
+                "vehicleChargePerMile": {
+                    "type": "number"
+                },
+                "effectiveVehicleChargePerMile": {
+                    "type": "number"
+                },
+                "leasedVehicleMaintenancePaymentAmount": {
+                    "type": "number"
+                },
+                "monthlyAverageDepreciationAmount": {
+                    "type": "number"
+                },
+                "monthlyAverageInterestAmount": {
+                    "type": "number"
+                },
+                "monthlyBaseRentAmount": {
+                    "type": "number"
+                },
+                "monthlySalesTaxAmount": {
+                    "type": "number"
+                },
+                "nonTaxableBaseRentAmount": {
+                    "type": "number"
+                },
+                "purchaseOptionAmount": {
+                    "type": "number"
+                },
+                "salesTaxPayableAmount": {
+                    "type": "number"
+                },
+                "securityDepositPaidAmount": {
+                    "type": "number"
+                },
+                "originalTermCount": {
+                    "type": "integer"
+                },
+                "originalScheduledPaymentDueDay": {
+                    "type": "integer"
+                },
+                "originalScheduledPaymentDueAmount ": {
+                    "type": "number"
+                },
+                "Total Due Date Change Days Counter": {
+                    "type": "integer"
+                },
+                "leasedVehicleInsurancePolicyNumber": {
+                    "type": "string"
+                },
+                "insuranceActivityTransactionCode": {
+                    "type": "string"
+                },
+                "insuranceActivityTransactionCodeDescription": {
+                    "type": "string"
+                },
+                "insurancePaymentAmount": {
+                    "type": "number"
+                }
+            }
+        },
+        "contractualCustomer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "automatedClearingHouseBankAccountNumber": {
+                    "type": "string"
+                },
+                "automatedClearingHouseBankAccountType": {
+                    "type": "string"
+                },
+                "automatedClearingHouseBankRoutingNumber": {
+                    "type": "string"
+                },
+                "automatedClearingHouseOriginalEffectiveDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "automatedClearingHouseCurrentEffectiveDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "automatedClearingHouseNextPaymentDueDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "automatedClearingHousePaymentIndicator": {
+                    "type": "string"
+                },
+                "automatedClearingHousePaymentDueAmount": {
+                    "type": "number"
+                },
+                "creditBureauBankruptcyStatusCode": {
+                    "type": "string"
+                },
+                "creditBureauBankruptcyStatusCodeDescription": {
+                    "type": "string"
+                }
+            }
+        },
+        "contractualVehicle": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "vehicleNumber": {
+                    "type": "string"
+                },
+                "vehicleMake": {
+                    "type": "string"
+                },
+                "vehicleModel": {
+                    "type": "string"
+                },
+                "vehicleYear": {
+                    "type": "string"
+                },
+                "businessSolutionGroupIndicator": {
+                    "type": "string"
+                },
+                "vehicleLowMileageIndicator": {
+                    "type": "string"
+                },
+                "vehicleRepossessionIndicator": {
+                    "type": "string"
+                },
+                "currentVehicleSaleType": {
+                    "type": "string"
+                },
+                "originalResidualValueAmount": {
+                    "type": "number"
+                },
+                "vehicleMileageAtTheTimeOfContract": {
+                    "type": "integer"
+                }
+            }
+        },
+        "contractualDealer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "dealerNumber": {
+                    "type": "string"
+                }
+            }
+        },
+        "paymentSchedule": {
+            "type": "array",
+            "additionalItems": true,
+            "uniqueItems": false,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "scheduledPaymentStartDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "scheduledPaymentDueDay": {
+                        "type": "number"
+                    },
+                    "scheduledPaymentDueAmount ": {
+                        "type": "number"
+                    },
+                    "scheduledPaymentTermCount": {
+                        "type": "integer"
+                    }
+                },
+                "additionalProperties": false,
+                "arrayItem": true
+            }
+        },
+        "account": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "currentAccountStatusIndicator": {
+                    "type": "string"
+                },
+                "editMessageCode": {
+                    "type": "string"
+                },
+                "editMessageCodeDescription": {
+                    "type": "string"
+                },
+                "currentTerminationDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "currentTerminationType": {
+                    "type": "string"
+                },
+                "lateChargeAssessedAmount": {
+                    "type": "number"
+                },
+                "lateChargePaidAmount": {
+                    "type": "number"
+                },
+                "lateChargeUnpaidAmount": {
+                    "type": "number"
+                },
+                "lateChargeWaivedAmount": {
+                    "type": "number"
+                },
+                "nextPaymentDueAmount": {
+                    "type": "number"
+                },
+                "nextPaymentDueDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "numberOfMonthsExpiredFromContractStartDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "onlineFinancialServiceCenterAccessIndicator": {
+                    "type": "string"
+                },
+                "totalMiscellaneousChargeUnpaidAmount": {
+                    "type": "number"
+                },
+                "remainingGrossReceivableAmount": {
+                    "type": "number"
+                },
+                "remainingUnearnedAmount": {
+                    "type": "number"
+                },
+                "numberOfDaysDelinquent": {
+                    "type": "integer"
+                },
+                "30+DaysDelinquentIndicator": {
+                    "type": "integer"
+                },
+                "30-59DaysDelinquencyCounter": {
+                    "type": "integer"
+                },
+                "60-89DaysDelinquencyCounter": {
+                    "type": "integer"
+                },
+                "90-119DaysDelinquencyCounter": {
+                    "type": "integer"
+                },
+                "numberOfPaymentsMade": {
+                    "type": "integer"
+                },
+                "numberOfPaymentsRemaining": {
+                    "type": "integer"
+                },
+                "currentPayoffAmount": {
+                    "type": "number"
+                },
+                "payoffQuoteGoodThruDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "currentNetPayoffAmount": {
+                    "type": "number"
+                },
+                "currentGrossPayoffAmount": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "isRestfulApi": false
+}

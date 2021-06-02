@@ -1,0 +1,24 @@
+{
+   "allOrNone":false,
+   "records":[
+      {
+         "attributes":{
+            "type":"DDC_Callback_Event__e"
+         },
+         "Interaction_Id__c":"",
+         "API_Callback_Initiated_On__c":"",
+         "API_Initiating_Party_Id__c":"",
+         "API_Reacting_Party_Id__c":"",
+         "API_Resource_Action__c":"CHANGE",
+         "API_Callback_Code__c":"",
+         "API_Callback_Description__c":"",
+         "API_Exception_Code__c":"",
+         "API_Exception_Description__c":"",
+         "Resource_Attribute_Name__c":"",
+         "Resource_Attribute_Exception_Code__c":"",
+         "Resource_Attribute_Exception_Description__c":"",
+         "Resource_Attribute_Value__c":"",
+         "Financial_Account_Number__c":""
+      }
+   ]
+}

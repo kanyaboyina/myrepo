@@ -1,0 +1,16 @@
+{
+    "RetailDueDateRequest": {
+      "apiRequestContext": {
+        "interactionID": "",
+        "apiRequestInitiatedOn": "",
+        "apiInitiatingPartyID": "",
+        "apiReactingPartyID": "",
+        "callbackAPIEndpointURL": ""
+      },
+      "financialAccountNumber": "",
+      "newScheduledPaymentDueDate": "",
+      "currentProductType": "",
+      "contractualTermCount":"",
+      "customerServiceAgentID": ""
+    }
+  }

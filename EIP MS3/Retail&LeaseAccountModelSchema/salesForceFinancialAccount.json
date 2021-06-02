@@ -1,0 +1,412 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "salesForceFinancialAccount",
+    "additionalProperties": false,
+    "properties": {
+        "_id": {
+            "type": "string",
+            "comments": "Application Generated MongoDB ID\n"
+        },
+        "documentContext": {
+            "type": "object",
+            "properties": {
+                "documentSchemaID": {
+                    "type": "string"
+                },
+                "documentInstanceID": {
+                    "type": "string"
+                },
+                "documentCreationTime": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Financial_Account_Number__c": {
+            "type": "string",
+            "primaryKey": true
+        },
+        "ACH_Account_Number__c": {
+            "type": "string"
+        },
+        "ACH_Account_Type__c": {
+            "type": "string"
+        },
+        "ACH_Current_Effective_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "ACH_Original_Effective_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "ACH_Payment_Date_Next__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "ACH_Routing_Number__c": {
+            "type": "string"
+        },
+        "Balloon_Code__c": {
+            "type": "string"
+        },
+        "Bankruptcy_Description__c": {
+            "type": "string"
+        },
+        "Bankruptcy_Flag__c": {
+            "type": "string"
+        },
+        "Bill_Day__c": {
+            "type": "integer"
+        },
+        "Branch__r_Account_Number__c": {
+            "type": "string"
+        },
+        "BSG_Flag__c": {
+            "type": "string"
+        },
+        "Charge_Of_Finance_Account_Number__c": {
+            "type": "string"
+        },
+        "Charge_PerDiem_Total__c": {
+            "type": "number"
+        },
+        "Chargeoff__c": {
+            "type": "string"
+        },
+        "ChargeOff_Agency_Code__c": {
+            "type": "string"
+        },
+        "Charges_Late__c": {
+            "type": "number"
+        },
+        "Charges_Miscellaneous__c": {
+            "type": "number"
+        },
+        "Charges_Unpaid_Other__c": {
+            "type": "number"
+        },
+        "CLAH__c": {
+            "type": "string"
+        },
+        "Close_Code__c": {
+            "type": "string"
+        },
+        "Code_Edit_Message__c": {
+            "type": "string"
+        },
+        "Edit_Message_Description__c": {
+            "type": "string"
+        },
+        "Contract_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Contract_Receivable__c": {
+            "type": "number"
+        },
+        "Customer_Number__c": {
+            "type": "string"
+        },
+        "Dealer_Rebate__c": {
+            "type": "number"
+        },
+        "Dealership__r_Account_Number__c": {
+            "type": "string"
+        },
+        "Effective_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Expired_Term__c": {
+            "type": "string"
+        },
+        "Finance_Account_Product_Type__c": {
+            "type": "string"
+        },
+        "Finance_Account_Status__c": {
+            "type": "string"
+        },
+        "Flag_ACH__c": {
+            "type": "string"
+        },
+        "Flag_Auto_Clearing_House__c": {
+            "type": "string"
+        },
+        "Flag_Encore_Eligible__c": {
+            "type": "string"
+        },
+        "Flag_Insurance__c": {
+            "type": "string"
+        },
+        "Flag_OFSC__c": {
+            "type": "string"
+        },
+        "Flag_Thirty_Plus_Days_Delinquant__c": {
+            "type": "string"
+        },
+        "Flag_Vehicle_Reposession__c": {
+            "type": "string"
+        },
+        "Flag_Voice_Quote__c": {
+            "type": "string"
+        },
+        "GAP_DCA__c": {
+            "type": "string"
+        },
+        "History_Counter_Days_Past_Due__c": {
+            "type": "integer"
+        },
+        "History_Counter_Extensions_Deferrals__c": {
+            "type": "integer"
+        },
+        "History_Counter_Fifteen_Days_Past_Due__c": {
+            "type": "integer"
+        },
+        "History_Counter_Ninety_Days_Past_Due__c": {
+            "type": "integer"
+        },
+        "History_Counter_Non_Sufficient_Funds__c": {
+            "type": "integer"
+        },
+        "History_Counter_Payments_Made__c": {
+            "type": "integer"
+        },
+        "History_Counter_SixtyDaysPastDue__c": {
+            "type": "integer"
+        },
+        "History_Counter_Thirty_Days_PastDue__c": {
+            "type": "integer"
+        },
+        "Insurance_Description__c": {
+            "type": "string"
+        },
+        "INT_PAY__c": {
+            "type": "number"
+        },
+        "Late_Charge_Assessed__c": {
+            "type": "number"
+        },
+        "Late_Charge_Paid__c": {
+            "type": "number"
+        },
+        "Late_Charge_Waived__c": {
+            "type": "number"
+        },
+        "Lease_Base_Rent__c": {
+            "type": "number"
+        },
+        "Lease_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Lease_Residual_End_of_Term_Amount__c": {
+            "type": "number"
+        },
+        "Lease_Termination_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Lease_TermType__c": {
+            "type": "string"
+        },
+        "Lease_Type__c": {
+            "type": "string"
+        },
+        "Loan_Amount_Original__c": {
+            "type": "number"
+        },
+        "Loan_Current_Amount__c": {
+            "type": "number"
+        },
+        "Loan_Interest_Paid__c": {
+            "type": "number"
+        },
+        "Loan_Maturity_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Loan_Original_Term__c": {
+            "type": "string"
+        },
+        "Loan_Rate__c": {
+            "type": "number"
+        },
+        "Maturity_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Max_Due_Date_Days__c": {
+            "type": "integer"
+        },
+        "Mileage_Charge__c": {
+            "type": "number"
+        },
+        "Name": {
+            "type": "string"
+        },
+        "Payment_Amount_ACH__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Balloon__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Last__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Last1__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Last2__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Last3__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Next__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Past_Due__c": {
+            "type": "number"
+        },
+        "Payment_Amount_Scheduled__c": {
+            "type": "number"
+        },
+        "Payment_Date_First__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Date_Last__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Date_Last_Extension__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Date_Last1__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Date_Last2__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Date_Last3__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Date_Next__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Date_Past_Due__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Payment_Depreciation_Amount__c": {
+            "type": "number"
+        },
+        "Payment_Extension_Fee__c": {
+            "type": "number"
+        },
+        "Payment_Income_Amount__c": {
+            "type": "number"
+        },
+        "Payment_Insurance_Amount__c": {
+            "type": "number"
+        },
+        "Payment_Lease_Maintenance_Amount__c": {
+            "type": "number"
+        },
+        "Payment_Partial_Amount__c": {
+            "type": "number"
+        },
+        "Payment_Term_Remaining__c": {
+            "type": "integer"
+        },
+        "Payoff_Amount__c": {
+            "type": "number"
+        },
+        "Payoff_Amount_Gross__c": {
+            "type": "number"
+        },
+        "Payoff_Amount_Net__c": {
+            "type": "number"
+        },
+        "Payoff_Good_Thru_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "PRIN_PD__c": {
+            "type": "number"
+        },
+        "Purchase_Option_Amount__c": {
+            "type": "number"
+        },
+        "RecordType_Name": {
+            "type": "string"
+        },
+        "RecordType_Name1": {
+            "type": "string"
+        },
+        "Recovery_Code__c": {
+            "type": "string"
+        },
+        "Recovery_Description__c": {
+            "type": "string"
+        },
+        "Refund__c": {
+            "type": "number"
+        },
+        "Revised_Maturity_Date__c": {
+            "type": "string",
+            "format": "date"
+        },
+        "Sale_Code__c": {
+            "type": "string"
+        },
+        "Security_Deposit_Amount__c": {
+            "type": "number"
+        },
+        "Tax_Local__c": {
+            "type": "number"
+        },
+        "Tax_Payment__c": {
+            "type": "number"
+        },
+        "Tax_Sales_Payable__c": {
+            "type": "number"
+        },
+        "Type_Code__c": {
+            "type": "string"
+        },
+        "Type_Code_Description__c": {
+            "type": "string"
+        },
+        "Unpaid_Late_Charge__c": {
+            "type": "number"
+        },
+        "Unpaid_Miscellaneous_Charge__c": {
+            "type": "number"
+        },
+        "Vehicle_Charge_Per_Mile__c": {
+            "type": "number"
+        },
+        "Vehicle_Flag_Low_Mileage__c": {
+            "type": "string"
+        },
+        "Vehicle_Insurance_Policy__c": {
+            "type": "string"
+        },
+        "Vehicle_Mileage_Allowance__c": {
+            "type": "string"
+        },
+        "Vehicle_Mileage_Start__c": {
+            "type": "string"
+        }
+    },
+    "isRestfulApi": false
+}
