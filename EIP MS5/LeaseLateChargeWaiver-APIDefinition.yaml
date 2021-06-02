@@ -1,0 +1,155 @@
+openapi: 3.0.0
+info:
+  title: 'Lease Late Charge Waiver Service'
+  version: v0.2
+  description: >-
+    Provides an on-demand service for Lease Late Charge Waiver Transaction.
+servers:
+  - url: 'https://coreservicing.{espserver}:{port}/'
+    description: 'Lease Account Maintenance Service endpoint per deployment environment'
+    variables:
+      eipserver:
+        description: >- 
+          Assigned at deployment time per deployed environment.
+        default: 'espserver.tfs.com'
+      port:
+        description: >-
+          Assigned at deployment time per deployment environment.
+        default: '8080'
+paths:
+  '/leaseAccount/scheduledPaymentDueDate':
+    put:
+      description: 'Enqueues Late Charge Waiver Transaction Request after Structural Validation for Asynchronous Processing & Acknowledges Receipt of Request.'
+      operationId: 'leaseLateChargeWaiver'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaseLateChargeWaiverRequest'
+        description: 'Late Charge Waiver Request Context & Resource Attributes'      
+      responses:
+        '202':
+          description: 'Late Charge Waiver Transaction Request Accepted & Enqueued for Asynchronous Processing'
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/LeaseLateChargeWaiverAcknowledgement'
+        '500':
+          description: 'Error processing Late Charge Waiver Transaction Request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeaseLateChargeWaiverAcknowledgement'          
+components:
+  schemas:           
+    LeaseLateChargeWaiverRequest:
+      type: object
+      required:
+        - apiRequestContext
+        - financialAccountNumber
+        - lateChargeWaiverAmount
+        - customerServiceAgentID
+      properties:
+        apiRequestContext:
+          type: object
+          description: >-
+            Provides the detailed context for Lease Late Charge Waiver API Request
+          properties:
+            interactionID:
+              type: string
+              description: >-
+                Globally Unique Identifier assigned by Client System representing the instance of an interaction with the Late Charge Waiver Service.
+            apiRequestInitiatedOn:
+              type: string
+              format: date-time
+              example: 2017-07-21T17:32:28Z
+              description: >-
+                Date & Time at which API Request was Initiated by Client in ISO 8601 format.
+            apiInitiatingPartyID:
+              type: string
+              description: >-
+                Unique Identifier representing the Party/System Initiating the API.    
+            apiReactingPartyID:
+              type: string
+              description: >-
+                Unique Identifier representing the Party/System Reacting to the API.                             
+            callbackAPIEndpointURL:
+              type: string
+              description: >-
+                Fully Qualified Enpoint URL with Resource Path for Asynchronous Response Callback from Late Charge Waiver Service     
+        financialAccountNumber:
+          type: string
+          description: >-
+            Unique Identifier for a Lease Account within Toyota Financial Services
+            Composite Key - [Region][Branch][Lease Number]
+                            [99][999][AAAAA]
+        lateChargeWaiverAmount:
+          type: number
+          example: 3.45          
+          description: >-
+            Late Charge Amount requested by Retail Customer to be Waived for his Account.
+        branchState:
+          type: string
+          format: 2 letter code
+          example: TX          
+          description: >-
+            Branch State represents the State of Branch Location used to uniquely Identify a Lease Account in LeMans.            
+        customerServiceAgentID:
+          type: string
+          description: >-
+            Customer Service Agent ID who initiated/approved due date change request for the customer account on the Client System
+    LeaseLateChargeWaiverAcknowledgement:
+      properties:            
+        apiAcknowledgementContext:
+          properties:
+            interactionID:
+              type: string
+              description: >-
+                Globally Unique Identifier assigned by Client System representing the instance of an interaction with the Late Charge Waiver Service.
+            apiAcknowledgementInitiatedOn:
+              type: string
+              format: date-time
+              example: 2017-07-21T17:32:28Z              
+              description: >-
+                Date & Time at which API Acknowledgement was Initiated by Late Charge Waiver Service in ISO 8601 format.      
+            apiAcknowledgementCode:
+              type: string
+              description: >-
+                Return code from the Late Charge Waiver Service indicating that the Late Charge Waiver transaction was enqueued successfully for asynchronous processing.
+            apiAcknowledgementDescription:
+              type: string
+              description: >-
+                Provides the description for Return Code from the Late Charge Waiver Service indicating that the Late Charge Waiver transaction was enqueued successfully for future processing.
+        apiExceptionContext:
+          properties:
+            apiExceptionCode:
+              type: string
+              description: >-
+                Exception code from the Late Charge Waiver Service indicating that the Late Charge Waiver transaction was not processed successfully.
+            apiExceptionDescription:
+              type: string
+              description: >-
+                Provides the description for Exception Code from the Late Charge Waiver Service indicating that the Late Charge Waiver transaction was not processed successfully
+            apiResourceExceptionDetail:
+              type: array
+              items:
+                type: object
+                description: >-
+                  Provides the reference to the Resource Attributes that caused the Exception
+                properties:
+                  resourceAttributeName:
+                    type: string
+                    description: >-
+                      Name of the Resource Attribute that cased the Exception.                    
+                  resourceAttributeValue:
+                    type: string  
+                    description: >-
+                      Value of the Resource Attribute that cased the Exception.                      
+                  resourceAttributeExceptionCode:
+                    type: string            
+                    description: >-
+                      Exception Code representing the type of error caused by the given Resource Attribute.                    
+                  resourceAttributeExceptionDescription:
+                    type: string  
+                    description: >-
+                      Description of the Exception Code representing the type of error caused by the given Resource Attribute.

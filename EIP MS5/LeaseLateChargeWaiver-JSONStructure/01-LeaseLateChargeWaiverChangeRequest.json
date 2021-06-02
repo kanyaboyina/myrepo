@@ -1,0 +1,15 @@
+{
+    "LeaseLateChargeWaiverRequest": {
+      "apiRequestContext": {
+        "interactionID": "",
+        "apiRequestInitiatedOn": "",
+        "apiInitiatingPartyID": "",
+        "apiReactingPartyID": "",
+        "callbackAPIEndpointURL": ""
+      },
+      "financialAccountNumber": "",
+      "lateChargeWaiverAmount": "",
+	  "branchState": "",
+      "customerServiceAgentID": ""
+    }
+}

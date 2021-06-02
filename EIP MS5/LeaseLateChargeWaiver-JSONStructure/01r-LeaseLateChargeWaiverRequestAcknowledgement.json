@@ -1,0 +1,20 @@
+{
+  "LeaseLateChargeWaiverAcknowledgement": {
+    "apiAcknowledgementContext": {
+      "interactionID": "",
+      "apiAcknowledgementInitiatedOn": "",
+      "apiAcknowledgementDescription": "",
+      "apiAcknowledgementCode": ""
+    }
+  },
+  "apiExceptionContext": {
+    "apiExceptionCode": "",
+    "apiExceptionDescription": "",
+    "apiResourceExceptionDetail": {
+      "resourceAttributeName": "",
+      "resourceAttributeValue": "",
+      "resourceAttributeExceptionCode": "",
+      "resourceAttributeExceptionDescription": ""
+    }
+  }
+}
